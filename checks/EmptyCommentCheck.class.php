@@ -12,16 +12,16 @@ class EmptyCommentCheck extends BasePreCommitCheck {
     }
 
     public function checkSvnComment($comment){
-        // Remove optional parameters (like --allow-tabs), 
-        // in order to check the size of a meaningful message 
+        // Remove optional parameters (like --allow-tabs),
+        // in order to check the size of a meaningful message
         $valuableComment = preg_replace('/(^|\s*)(--\S+)(\s*|$)/', '', $comment);
 
         // Only consider Words in the count
-        $valuableComment = preg_replace('/\W+/', '', $valuableComment); 
+        $valuableComment = preg_replace('/\W+/', '', $valuableComment);
 
-        if (strlen($valuableComment) < 5)
+        if (strlen($valuableComment) < 10)
         {
-            return '(1) Commit message has been rejected (too short). Please provide more details about changes you want to commit.';
+            return '请输入提交的代码的功能简要(5个字及以上)';
         }
     }
 

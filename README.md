@@ -12,5 +12,5 @@
 
 (2) 配置SVN PRE-COMMIT的钩子脚本: /path/to/svn_house/project/hooks/pre_commit, 增加如下一条指令：
 
-    /path/to/php /path/to/php-svn-hook/svn_pre_commit_hook.php $1 $2 --include=EmptyComment:Syntax  >> /tmp/php_svn_hook.log
+    php /opt/tools/php-svn-hook/svn_pre_commit_hook.php $1 $2 --include=EmptyComment:NoTabs:Syntax  >> /tmp/php_svn_hook.log
 
